@@ -7,6 +7,7 @@ public class ReferenceTilemap : MonoBehaviour
 {
     public CompositeCollider2D SourceCollider;
     public PolygonCollider2D TargetCollider;
+    public float OffsetY;
 
     void Awake()
     {
@@ -22,5 +23,11 @@ public class ReferenceTilemap : MonoBehaviour
             SourceCollider.GetPath(i, points);
             TargetCollider.SetPath(i, points);
         }
+
+        
+        float x = gameObject.transform.position.x;
+        float y = gameObject.transform.position.y;
+        Vector2 newPos = new Vector2(x, y + OffsetY);
+        gameObject.transform.position = newPos; 
     }
 }
