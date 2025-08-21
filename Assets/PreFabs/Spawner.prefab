@@ -48,14 +48,21 @@ MonoBehaviour:
   SpawnerTransfowm: {fileID: 7790524178241279293}
   maxTrashCount: 10
   SpawnTimer: 3
+  SpawnStartOffset: 0
   Plastic: 1
   Metal: 1
   Paper: 1
   Compost: 0
   PaperList:
   - {fileID: 1461276211319944638, guid: 5f632899b8fd2cc4497d9041fa6d402c, type: 3}
+  - {fileID: 1461276211319944638, guid: 398631aec9c261046a31b4596eec601d, type: 3}
+  - {fileID: 1461276211319944638, guid: f28d63aa977e0f943915bc47aebd1906, type: 3}
   MetalList:
   - {fileID: 5100459853145214986, guid: 1024e4a9118361443ad194b52df5c68b, type: 3}
+  - {fileID: 5100459853145214986, guid: d763873259236bc439846ac5632dfd6d, type: 3}
+  - {fileID: 5100459853145214986, guid: 11f968bfa5bd1554897e611eb9cf7b59, type: 3}
   PlasticList:
   - {fileID: 2649367880407620002, guid: cc31951702a19d249afa8e82b5ded996, type: 3}
+  - {fileID: 2649367880407620002, guid: d53328bdfec68474cb518c6debdcab6e, type: 3}
+  - {fileID: 2649367880407620002, guid: ce8edcd54943dae41b89a2ef5ecad6a4, type: 3}
   CompostList: []
