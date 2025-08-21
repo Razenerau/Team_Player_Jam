@@ -156,10 +156,10 @@ MonoBehaviour:
     m_Bits: 64
   pickupPoint: {fileID: 7896962414783213428}
   pickupRadius: 0.5
-  throwForce: 3
+  throwForce: 5
   spriteRender: {fileID: 5274079291702458148}
-  keyBind: 112
-  altKeyBind: 0
+  keyBind: 271
+  altKeyBind: 13
 --- !u!61 &8942220278148138651
 BoxCollider2D:
   m_ObjectHideFlags: 0
