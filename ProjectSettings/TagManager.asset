@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Plastic
+  - Metal
+  - Paper
+  - Compost
   layers:
   - Default
   - TransparentFX
@@ -17,8 +21,8 @@ TagManager:
   - Floor_2_Walls
   - Player_1
   - Player_2
-  - 
-  - 
+  - Box
+  - Recycle
   - 
   - 
   - 
