@@ -47,7 +47,7 @@ public class SpawnerController : MonoBehaviour
         }
         if (Plastic)
         {
-            foreach (var trash in PlasticList)
+            foreach (var trash in PaperList)
             {
                 TrashList.Add(trash);
             }

@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+//using System.Drawing;
+using TMPro;
 using UnityEngine;
 
 public class RecycleController : MonoBehaviour
 {
     public string TargetTag;
+    public TextMeshProUGUI Text;
 
     [Header("Score")]
     public int TrashRecycled;
     public int TrashMisplaced;
+
+    public int RequiredScore = 10;
 
     [Header("Variables")]
     public float FlashTime;
@@ -17,8 +22,18 @@ public class RecycleController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag(TargetTag))
         {
+            RequiredScore--;
+
+            Text.SetText(TargetTag + ": " + RequiredScore + " Left");
+
             TrashRecycled++;
             StartCoroutine(Flash(Color.green));
+            if(RequiredScore == 0)
+            {
+                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+                spriteRenderer.color = Color.green;
+                Requirements.Instance.NumOfRequirementsMet++;
+            }
             
         }
         else
@@ -37,5 +52,10 @@ public class RecycleController : MonoBehaviour
         yield return new WaitForSeconds(FlashTime);
 
         spriteRenderer.color = Color.white;
+    }
+
+    private void Start()
+    {
+        Text.SetText(TargetTag + ": " + RequiredScore + " Left");
     }
 }
