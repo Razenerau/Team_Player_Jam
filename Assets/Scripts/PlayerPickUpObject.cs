@@ -44,7 +44,7 @@ public class PlayerPickUpObject : MonoBehaviour {
         }
         else if (_isHoldingObject) {
             // Throw object when the correct key is pressed
-            if (Input.GetKeyDown(keyBind)) {
+            if (Input.GetKeyDown(keyBind) || Input.GetKeyDown(altKeyBind)) {
                 ThrowObjectMethod();
             }
         }

@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 174911036987940951}
   - component: {fileID: 3506787016227183393}
   m_Layer: 6
-  m_Name: Pickable Object Square
-  m_TagString: Untagged
+  m_Name: Pickable Plastic
+  m_TagString: Plastic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

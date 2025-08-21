@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f699c465fa9ac419e518f2003d237b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerOne: 0
+  isPlayerOne: 1
   xSpeed: 6
   ySpeed: 6
 --- !u!114 &8719248342655987234
@@ -273,8 +273,8 @@ MonoBehaviour:
   pickupRadius: 0.5
   throwForce: 3
   spriteRender: {fileID: 6025144722672612244}
-  keyBind: 113
-  altKeyBind: 0
+  keyBind: 13
+  altKeyBind: 271
 --- !u!61 &9054054414006918546
 BoxCollider2D:
   m_ObjectHideFlags: 0
