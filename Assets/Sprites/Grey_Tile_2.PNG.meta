@@ -108,7 +108,111 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Grey_Tile_2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: 58}
+        - {x: -81, y: 61}
+        - {x: 150, y: 58}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e3015d60708c6245a11dcc9e362e189
+      internalID: -1886102961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grey_Tile_2_1
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: 58}
+        - {x: -81, y: 61}
+        - {x: 150, y: 58}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8809be38d5ded940847f491fce40d62
+      internalID: 730395292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grey_Tile_2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 308
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: 58}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: -150, y: -150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa638e1a18bcc4344bee08821a0cfa04
+      internalID: 155865718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grey_Tile_2_3
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 306
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 150, y: -150}
+        - {x: -150, y: -150}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14536ff5337fe9046a6614816c7101bc
+      internalID: -1765174394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +223,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Grey_Tile_2_0: -1886102961
+      Grey_Tile_2_1: 730395292
+      Grey_Tile_2_2: 155865718
+      Grey_Tile_2_3: -1765174394
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
