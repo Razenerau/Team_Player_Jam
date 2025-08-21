@@ -20,21 +20,20 @@ public class RecycleController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag(TargetTag))
+        if(collision.gameObject.CompareTag(TargetTag) && RequiredScore > 0)
         {
+           
             RequiredScore--;
 
             Text.SetText(TargetTag + ": " + RequiredScore + " Left");
 
             TrashRecycled++;
             StartCoroutine(Flash(Color.green));
-            if(RequiredScore == 0)
+
+            if (RequiredScore == 0)
             {
-                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-                spriteRenderer.color = Color.green;
                 Requirements.Instance.AddScore();
             }
-            
         }
         else
         { 
@@ -52,6 +51,11 @@ public class RecycleController : MonoBehaviour
         yield return new WaitForSeconds(FlashTime);
 
         spriteRenderer.color = Color.white;
+
+        if (RequiredScore == 0)
+        {
+            spriteRenderer.color = Color.green;
+        }
     }
 
     private void Start()

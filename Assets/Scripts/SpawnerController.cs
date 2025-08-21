@@ -45,7 +45,7 @@ public class SpawnerController : MonoBehaviour
                 TrashList.Add(trash);
             }
         }
-        if (Plastic)
+        if (Paper)
         {
             foreach (var trash in PaperList)
             {
@@ -70,6 +70,9 @@ public class SpawnerController : MonoBehaviour
         if (gameObject.transform.childCount >= maxTrashCount) return;
 
         int randomIndex = Random.Range(0, TrashList.Count);
+
+        Debug.Log(TrashList.Count + "   " + randomIndex);
+
         GameObject trash = TrashList[randomIndex];
 
         //Debug.Log(trash.name + " " + trash.transform.position + " spawned");

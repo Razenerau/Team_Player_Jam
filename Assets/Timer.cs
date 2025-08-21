@@ -9,6 +9,8 @@ public class Timer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private float startTime = 30f;
 
+    public GameObject DeathScreen;
+
     private float currentTime;
     private bool isCounting = true;
 
@@ -43,6 +45,8 @@ public class Timer : MonoBehaviour
 
     void ReloadScene()
     {
+
+
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
     }

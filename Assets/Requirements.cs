@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Requirements : MonoBehaviour
 {
@@ -22,16 +23,24 @@ public class Requirements : MonoBehaviour
 
     public void AddScore()
     {
-        if(NumOfRequirementsMet >= 3)
+        if(NumOfRequirementsMet >= 2)
         {
             textMetal.color = Color.green;
             textPaper.color = Color.green;
             textPlastic.color = Color.green;
+
+            StartCoroutine(End());
         }
         else
         {
             NumOfRequirementsMet++;
         }
             
+    }
+
+    private IEnumerator End()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("End");
     }
 }
