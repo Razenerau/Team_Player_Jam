@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class Timer : MonoBehaviour
         {
             currentTime = 0f;
             isCounting = false;
+            timerText.color = Color.red;
+            ReloadScene();
         }
 
         UpdateTimerDisplay();
@@ -35,6 +38,14 @@ public class Timer : MonoBehaviour
     void UpdateTimerDisplay()
     {
         timerText.text = Mathf.CeilToInt(currentTime).ToString();
+        Requirements.Instance.timeLeft = currentTime;
     }
+
+    void ReloadScene()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+    }
+
 
 }

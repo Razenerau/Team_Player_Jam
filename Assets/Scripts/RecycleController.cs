@@ -32,7 +32,7 @@ public class RecycleController : MonoBehaviour
             {
                 SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
                 spriteRenderer.color = Color.green;
-                Requirements.Instance.NumOfRequirementsMet++;
+                Requirements.Instance.AddScore();
             }
             
         }
