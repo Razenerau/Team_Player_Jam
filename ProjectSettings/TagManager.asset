@@ -12,11 +12,11 @@ TagManager:
   - Water
   - UI
   - PickUp
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Floor_1
+  - Floor_2_Ground
+  - Floor_2_Walls
+  - Player_1
+  - Player_2
   - 
   - 
   - 

@@ -15,7 +15,8 @@ public class PlayerPickUpObject : MonoBehaviour {
     public SpriteRenderer spriteRender;  // Shows if the player can pick somehting up
     
     [Header("Player Key Bind")]
-    public KeyCode keyBind = KeyCode.P;
+    public KeyCode keyBind;
+    public KeyCode altKeyBind;
 
     private bool _isHoldingObject = false;
     private GameObject _heldObject;       // The object currently being held
@@ -37,7 +38,7 @@ public class PlayerPickUpObject : MonoBehaviour {
         if (!_isHoldingObject && _objectInRange != null) {
             spriteRender.enabled = true;
             // Pick up object when the correct key is pressed
-            if (Input.GetKeyDown(keyBind)) {
+            if (Input.GetKeyDown(keyBind) || Input.GetKeyDown(altKeyBind)) {
                 PickUpObjectMethod(_objectInRange);
             }
         }
