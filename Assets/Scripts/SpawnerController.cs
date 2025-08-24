@@ -71,7 +71,7 @@ public class SpawnerController : MonoBehaviour
 
         int randomIndex = Random.Range(0, TrashList.Count);
 
-        Debug.Log(TrashList.Count + "   " + randomIndex);
+        //Debug.Log(TrashList.Count + "   " + randomIndex);
 
         GameObject trash = TrashList[randomIndex];
 

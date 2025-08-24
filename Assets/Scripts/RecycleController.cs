@@ -1,43 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
-//using System.Drawing;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RecycleController : MonoBehaviour
 {
     public string TargetTag;
-    public TextMeshProUGUI Text;
-
-    [Header("Score")]
-    public int TrashRecycled;
-    public int TrashMisplaced;
-
-    public int RequiredScore = 10;
+    public Color DefaultColor = Color.white;
 
     [Header("Variables")]
     public float FlashTime;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag(TargetTag) && RequiredScore > 0)
+        if(collision.gameObject.CompareTag(TargetTag))
         {
-           
-            RequiredScore--;
-
-            Text.SetText(TargetTag + ": " + RequiredScore + " Left");
-
-            TrashRecycled++;
+            Requirements.Instance.OnTrashRecycled(TargetTag);
             StartCoroutine(Flash(Color.green));
-
-            if (RequiredScore == 0)
-            {
-                Requirements.Instance.AddScore();
-            }
         }
         else
-        { 
-            TrashMisplaced++;
+        {
+            Requirements.Instance.OnTrashMisplaced();
             StartCoroutine(Flash(Color.red));
         }
         Destroy(collision.gameObject);
@@ -50,16 +34,6 @@ public class RecycleController : MonoBehaviour
 
         yield return new WaitForSeconds(FlashTime);
 
-        spriteRenderer.color = Color.white;
-
-        if (RequiredScore == 0)
-        {
-            spriteRenderer.color = Color.green;
-        }
-    }
-
-    private void Start()
-    {
-        Text.SetText(TargetTag + ": " + RequiredScore + " Left");
+        spriteRenderer.color = DefaultColor;
     }
 }

@@ -9,7 +9,9 @@ public class Timer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private float startTime = 30f;
 
-    public GameObject DeathScreen;
+    public GameObject WinScreen;
+    public GameObject GameOverScreen;
+
 
     private float currentTime;
     private bool isCounting = true;
@@ -31,7 +33,7 @@ public class Timer : MonoBehaviour
             currentTime = 0f;
             isCounting = false;
             timerText.color = Color.red;
-            ReloadScene();
+            OnTimeRunOut();
         }
 
         UpdateTimerDisplay();
@@ -40,15 +42,47 @@ public class Timer : MonoBehaviour
     void UpdateTimerDisplay()
     {
         timerText.text = Mathf.CeilToInt(currentTime).ToString();
-        Requirements.Instance.timeLeft = currentTime;
+        RequirementsController.instance.currentTime = Mathf.CeilToInt(currentTime);
     }
 
-    void ReloadScene()
+    void OnTimeRunOut()
     {
+        if(Requirements.Instance.areReqMet)
+        {
+            StartCoroutine(NextScene());
+        }
+        else
+        {
+            StartCoroutine(ReloadScene());
+        }
+    }
 
+    private IEnumerator NextScene()
+    {
+        yield return new WaitForSeconds(3f);
+        LoadNextScene();
+    }
 
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentScene.name);
+    private IEnumerator ReloadScene()
+    {
+        yield return new WaitForSeconds(3f);
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentIndex);
+    }
+
+    public void LoadNextScene()
+    {
+        // Get current scene index
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // Get total number of scenes in build settings
+        int totalScenes = SceneManager.sceneCountInBuildSettings;
+
+        // Calculate next scene index (wraps around to 0 if at the end)
+        int nextIndex = (currentIndex + 1) % totalScenes;
+
+        // Load the next scene
+        SceneManager.LoadScene(nextIndex);
     }
 
 

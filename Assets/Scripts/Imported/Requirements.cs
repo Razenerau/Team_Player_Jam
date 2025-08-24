@@ -8,39 +8,93 @@ public class Requirements : MonoBehaviour
 {
     public static Requirements Instance;
 
-    public float timeLeft;
+    public List<Requirement> RequirementList;
 
-    public TextMeshProUGUI textPlastic;
-    //public TextMeshProUGUI textPaper;
-    public TextMeshProUGUI textMetal;
-
-    public int NumOfRequirementsMet;
+    public bool areReqMet = false;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public void AddScore()
+    private void Start()
     {
-        if(NumOfRequirementsMet >= 1)
+        foreach (var req in RequirementList)
         {
-            textMetal.color = Color.green;
-            //textPaper.color = Color.green;
-            textPlastic.color = Color.green;
-
-            StartCoroutine(End());
+            req.text.SetText(req.name + ": " + req.number + " Left");
         }
-        else
-        {
-            NumOfRequirementsMet++;
-        }
-            
     }
 
-    private IEnumerator End()
+    public void OnTrashRecycled(string tag)
     {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("End");
+        ScoreController.trashRecycled++;
+
+        Requirement req = RequirementList.Find(r => r.name == tag);
+        if (req == null) return; // Update score
+
+        if (req.number > 0)
+        {
+            req.number--;
+            req.text.SetText(req.name + ": " + req.number + " Left");
+
+            if (req.number == 0)
+            {
+                // bin is complete, show it visually
+                SpriteRenderer sr = req.bin.GetComponent<SpriteRenderer>();
+                if (sr != null) sr.color = Color.green;
+
+                RecycleController recycleController = req.bin.GetComponent<RecycleController>();
+                recycleController.DefaultColor = Color.green;
+            }
+        }
+
+        CheckIfAllComplete();
     }
+
+    public void OnTrashMisplaced()
+    {
+        ScoreController.trashMisplaced++;
+    }
+
+    private void CheckIfAllComplete()
+    {
+        foreach (Requirement req in RequirementList)
+        {
+            if (req.number > 0) return; // Still something left
+        }
+
+        areReqMet = true;
+
+        //StartCoroutine(End());
+    }
+
+    public void AddRequirement(string tag, int count, TextMeshProUGUI uiText, GameObject bin)
+    {
+        bin.SetActive(true);
+        Requirement newReq = new Requirement
+        {
+            name = tag,
+            number = count,
+            text = uiText,
+            bin = bin
+        };
+        newReq.text.SetText(newReq.name + ": " + newReq.number + " Left");
+        RequirementList.Add(newReq);
+    }
+
+    public void RemoveRequirment(string tag)
+    {
+
+    }
+}
+
+[System.Serializable]
+public class Requirement
+{
+    public string name;
+    public TextMeshProUGUI text;
+    public GameObject bin;
+
+    [Header("Score")]
+    public int number;
 }
