@@ -12,6 +12,9 @@ public class Timer : MonoBehaviour
     public GameObject WinScreen;
     public GameObject GameOverScreen;
 
+    public TextMeshProUGUI GMScoreText;
+    public TextMeshProUGUI WScoreText;
+
 
     private float currentTime;
     private bool isCounting = true;
@@ -59,13 +62,17 @@ public class Timer : MonoBehaviour
 
     private IEnumerator NextScene()
     {
-        yield return new WaitForSeconds(3f);
+        WScoreText.SetText("Trash Recycled: " + ScoreController.trashRecycled.ToString());
+        WinScreen.SetActive(true);
+        yield return new WaitForSeconds(5f);
         LoadNextScene();
     }
 
     private IEnumerator ReloadScene()
     {
-        yield return new WaitForSeconds(3f);
+        GMScoreText.SetText("Trash Recycled: " + ScoreController.trashRecycled.ToString()); 
+        GameOverScreen.SetActive(true);
+        yield return new WaitForSeconds(5f);
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentIndex);
     }

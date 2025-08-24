@@ -32,7 +32,7 @@ public class RequirementsController : MonoBehaviour
         {
             RecycleController recycleController = bin.GetComponent<RecycleController>();
             string tag = recycleController.TargetTag;
-            Requirements.Instance.AddRequirement(tag, 5, uiText, bin);
+            Requirements.Instance.AddRequirement(tag, ScoreController.trashRecycled, uiText, bin);
             spawner.SetActive(true);
 
             isAdded = true;
