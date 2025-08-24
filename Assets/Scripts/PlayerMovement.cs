@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour {
     public bool isPlayerOne = true;   // True if this is player 1, false for player 2
     public float xSpeed = 3f;         // Horizontal movement speed
     public float ySpeed = 3f;         // Vertical movement speed
+    public float turnSpeed = 100f;
     
     // Called when the game starts
     private void Start() { _rb = GetComponent<Rigidbody2D>(); }
@@ -38,17 +39,83 @@ public class PlayerMovement : MonoBehaviour {
         // Rotate the player to face the direction of movement
         Vector2 movement = new Vector2(xInput, yInput);
         if (movement != Vector2.zero) {
-            // Calculate the angle in degrees (0° = up, clockwise rotation)
-            float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+            /*
+            // Calculate the targetAngle in degrees (0° = up, clockwise rotation)
+            float targetAngle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+
+            if (targetAngle < 0f)
+            {
+                targetAngle = 360 + targetAngle;
+            }
+
+            float newAngle;
 
             // Adjust so that 0° points up
-            angle -= 90f;
+            //targetAngle -= 90f;
 
-            // Snap the rotation to the nearest 45 degrees for 8-directional movement
-            float snappedAngle = Mathf.Round(angle / 45f) * 45f;
+            float currentAngle = transform.rotation.eulerAngles.z;
+            float angleDifference = Mathf.Abs(currentAngle - targetAngle);
+
+           if(angleDifference <= 0.05f)
+            {
+                newAngle = currentAngle;
+            }
+            else
+            {
+                float posDifference;
+                float negDifference;
+                float newTargetAngle;
+
+                // Turning Counterclockwise
+                if (targetAngle > currentAngle) 
+                {
+                    posDifference = targetAngle - currentAngle;
+                    negDifference = 360 - posDifference;
+
+                    if(posDifference < negDifference)
+                    {
+                        newTargetAngle = currentAngle + (posDifference / 2f);
+                    }
+                    else
+                    {
+                        newTargetAngle = targetAngle + (negDifference / 2f);
+                    }
+                    
+
+                    
+                }
+                // Turning Clockwise
+                else
+                {
+                    //posDifference = 360 - currentAngle + targetAngle;
+                    negDifference = currentAngle - targetAngle;
+
+                    newTargetAngle = targetAngle + (negDifference / 2f);
+                }
+
+                
+
+                //targetAngle = posDifference > negDifference ? negDifference : posDifference;
+
+                newAngle = (currentAngle + targetAngle) / 2f;
+            }
+
+            if(newAngle > 360)
+            {
+                newAngle -= 360;
+            }
 
             // Apply rotation to the player
-            transform.rotation = Quaternion.Euler(0, 0, snappedAngle);
+            transform.rotation = Quaternion.Euler(0, 0, newAngle);
+            */
+
+            float targetAngle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg - 90f;
+            float currentAngle = transform.eulerAngles.z;
+
+            // Smoothly rotate at a fixed speed
+            float newAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, turnSpeed * Time.deltaTime);
+
+            transform.rotation = Quaternion.Euler(0, 0, newAngle);
         }
     }
 

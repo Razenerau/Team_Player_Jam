@@ -2477,11 +2477,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 495512502281651798, guid: 4cfa8652a6fcee74e98bf24d43899b0d, type: 3}
       propertyPath: Metal
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495512502281651798, guid: 4cfa8652a6fcee74e98bf24d43899b0d, type: 3}
+      propertyPath: Paper
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 495512502281651798, guid: 4cfa8652a6fcee74e98bf24d43899b0d, type: 3}
       propertyPath: Plastic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 495512502281651798, guid: 4cfa8652a6fcee74e98bf24d43899b0d, type: 3}
       propertyPath: SpawnTimer
@@ -2582,7 +2586,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -323.50635, y: 130.80458}
+  m_AnchoredPosition: {x: -309, y: 124}
   m_SizeDelta: {x: 152.9873, y: 175.3488}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &763662018
@@ -2840,7 +2844,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeLeft: 0
   textPlastic: {fileID: 1730880208}
-  textPaper: {fileID: 1291488018}
   textMetal: {fileID: 894308140}
   NumOfRequirementsMet: 0
 --- !u!1 &1110539373
@@ -8703,7 +8706,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.9986, y: -14.3976}
+  m_AnchoredPosition: {x: 1.9986, y: -56}
   m_SizeDelta: {x: 145.9972, y: 39.7013}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1291488018
@@ -9033,7 +9036,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.9986, y: -53.7186}
+  m_AnchoredPosition: {x: 1.9986, y: -14}
   m_SizeDelta: {x: 145.9972, y: 39.7013}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1730880208
@@ -9317,7 +9320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1958878267}
-  startTime: 120
+  startTime: 2000
   DeathScreen: {fileID: 0}
 --- !u!1 &2070098927
 GameObject:
@@ -9878,6 +9881,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 495512502281651798, guid: 4cfa8652a6fcee74e98bf24d43899b0d, type: 3}
       propertyPath: Metal
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 495512502281651798, guid: 4cfa8652a6fcee74e98bf24d43899b0d, type: 3}
+      propertyPath: Paper
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495512502281651798, guid: 4cfa8652a6fcee74e98bf24d43899b0d, type: 3}
+      propertyPath: Plastic
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 495512502281651798, guid: 4cfa8652a6fcee74e98bf24d43899b0d, type: 3}
@@ -9996,6 +10007,10 @@ PrefabInstance:
     - target: {fileID: 677889457420071507, guid: c925b0a5af7eef140b68fcc2df244c85, type: 3}
       propertyPath: m_Name
       value: PaperRecycle
+      objectReference: {fileID: 0}
+    - target: {fileID: 677889457420071507, guid: c925b0a5af7eef140b68fcc2df244c85, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2995956405843677460, guid: c925b0a5af7eef140b68fcc2df244c85, type: 3}
       propertyPath: Text

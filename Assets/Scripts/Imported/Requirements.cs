@@ -11,7 +11,7 @@ public class Requirements : MonoBehaviour
     public float timeLeft;
 
     public TextMeshProUGUI textPlastic;
-    public TextMeshProUGUI textPaper;
+    //public TextMeshProUGUI textPaper;
     public TextMeshProUGUI textMetal;
 
     public int NumOfRequirementsMet;
@@ -23,10 +23,10 @@ public class Requirements : MonoBehaviour
 
     public void AddScore()
     {
-        if(NumOfRequirementsMet >= 2)
+        if(NumOfRequirementsMet >= 1)
         {
             textMetal.color = Color.green;
-            textPaper.color = Color.green;
+            //textPaper.color = Color.green;
             textPlastic.color = Color.green;
 
             StartCoroutine(End());

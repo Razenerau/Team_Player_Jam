@@ -222,6 +222,7 @@ MonoBehaviour:
   isPlayerOne: 1
   xSpeed: 6
   ySpeed: 6
+  turnSpeed: 500
 --- !u!114 &6554929116975734204
 MonoBehaviour:
   m_ObjectHideFlags: 0
