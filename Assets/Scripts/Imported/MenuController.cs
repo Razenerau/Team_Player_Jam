@@ -8,7 +8,7 @@ public class MenuController : MonoBehaviour
     // Public method to load the "Level_1" scene
     public void LoadLevelOne()
     {
-        SceneManager.LoadScene("Level_1");
+        SceneManager.LoadScene("Level_0");
     }
 
 }

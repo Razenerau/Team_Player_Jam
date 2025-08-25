@@ -54,6 +54,7 @@ public class SpawnerController : MonoBehaviour
         }
         if (Compost)
         {
+            Debug.Log("Paper spawted");
             foreach (var trash in CompostList)
             {
                 TrashList.Add(trash);

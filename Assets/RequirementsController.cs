@@ -16,7 +16,7 @@ public class RequirementsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bin.SetActive(false);
+        //bin.SetActive(false);
         spawner.SetActive(false);
     }
 
